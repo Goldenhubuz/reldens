@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "8080:8000"
+    command: sh -c "mkdir -p /app/node_modules && ln -sf /app /app/node_modules/reldens && node index.js"
+    environment:
+      - RELDENS_DB_CLIENT=mysql2
+      - RELDENS_DB_HOST=db
+      - RELDENS_DB_PORT=3306
+      - RELDENS_DB_NAME=reldens
+      - RELDENS_DB_USER=reldens_user
+      - RELDENS_DB_PASSWORD=reldens_password
+      - RELDENS_MONITOR=1
+      - RELDENS_MONITOR_AUTH=1
+      - RELDENS_MONITOR_USER=admin
+      - RELDENS_MONITOR_PASS=adminpassword123
+      - RELDENS_APP_PORT=8000
+      - RELDENS_ALLOW_RUN_BUNDLER=0
+      - RELDENS_ALLOW_BUILD_CLIENT=0
+      - RELDENS_ALLOW_BUILD_CSS=0
+    depends_on:
+      db:
+        condition: service_healthy
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  db:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_DATABASE=reldens
+      - MYSQL_USER=reldens_user
+      - MYSQL_PASSWORD=reldens_password
+      - MYSQL_ROOT_PASSWORD=rootpassword123
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
