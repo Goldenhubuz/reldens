@@ -1,0 +1,86 @@
+/**
+ *
+ * Reldens - Styles - Player Selection
+ *
+ */
+
+@use "variables" as *;
+
+.game-started {
+    &.game-engine-started {
+        #player-selection {
+            display: none;
+        }
+    }
+
+    #player-selection {
+        display: flex;
+
+        &.hidden {
+            display: none;
+        }
+    }
+}
+
+#player-selection {
+    display: none;
+    max-width: $containerMaxWidth;
+    margin: 0 auto;
+    padding: 0;
+
+    .selection-forms-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        gap: 2rem;
+        width: 100%;
+        padding: 0;
+        margin: 0 auto;
+
+        form {
+            flex-wrap: wrap;
+            width: 100%;
+            margin: 0;
+            display: flex;
+            max-width: 500px;
+            align-items: flex-start;
+
+            &.hidden {
+                display: none;
+            }
+
+            .select-element {
+                position: relative;
+                max-width: fit-content;
+                min-width: 250px;
+                padding: 8px;
+                margin: 0 auto;
+                border: 1px solid $cLightGrey;
+                text-align: center;
+            }
+
+            .player-creation-additional-info {
+                width: 100%;
+            }
+
+            .class-path-select-avatar {
+                background-position: top left;
+                display: block;
+                margin: 10px auto;
+            }
+
+            .input-box {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+
+                label {
+                    width: 100%;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

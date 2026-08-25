@@ -1,0 +1,156 @@
+/**
+ *
+ * Reldens - Styles - Teams
+ *
+ */
+
+@use "variables" as *;
+
+.teams-dialog-box {
+    min-width: 160px;
+    top: 200px;
+    right: 360px;
+}
+
+.clan-dialog-box {
+    float: left;
+    position: relative;
+    min-width: 160px;
+    min-height: 100px;
+    top: 250px;
+    right: 360px;
+    /* help for chrome issue with scale on phaser dom elements
+    will-change: transform;
+    transform: scale(1.009);
+    */
+
+    .box-title {
+        font-size: 1rem;
+    }
+
+    .clan-row {
+        display: block;
+        float: left;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .clan-name-input {
+        outline: none;
+        border: 1px solid #ccc;
+        padding: 8px;
+        display: block;
+        position: relative;
+        box-shadow: 4px 4px 8px #0009;
+        margin-bottom: 1rem;
+    }
+
+    .default-loading-container img{
+        max-width: 48px;
+    }
+
+}
+
+@media (max-height: 400px) {
+
+    .teams-dialog-box {
+        top: 50px;
+    }
+
+    .clan-dialog-box {
+        top: 80px;
+    }
+
+}
+
+.clan-open {
+    top: 230px;
+    right: 60px;
+}
+
+.teams-open {
+    top: 300px;
+    right: 60px;
+}
+
+.team-player,
+.property-box,
+.properties-list-container {
+    width: 100%;
+    float: left;
+    display: block;
+    position: relative;
+    padding: 0;
+    margin: 0 0 5px;
+}
+
+.player-name {
+    float: left;
+    display: block;
+    width: 90%;
+    text-align: left;
+    cursor: pointer;
+}
+
+.properties-list-container {
+    cursor: pointer;
+}
+
+.team-remove-container {
+    float: left;
+    display: block;
+    width: 10%;
+
+    .team-remove-button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        max-width: 24px;
+        cursor: pointer;
+    }
+
+}
+
+.property-box {
+    float: left;
+    padding: 0;
+    margin: 0;
+
+    div {
+        float: left;
+    }
+
+    .label {
+        margin-right: 10px;
+    }
+
+    .value {
+        margin-right: 6px;
+    }
+
+}
+
+.team-leave-action {
+    float: right;
+}
+
+.clan-member {
+    min-height: 24px;
+    vertical-align: middle;
+    line-height: 24px;
+
+    .member-name {
+        float: left;
+    }
+
+    .clan-remove-container {
+        float: right;
+        cursor: pointer;
+
+        img {
+            max-width: 24px;
+            position: relative;
+            top: 0;
+        }
+    }
+}

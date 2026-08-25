@@ -1,0 +1,83 @@
+/**
+ *
+ * Reldens - Styles - Firebase
+ *
+ */
+
+.firebase-row-container {
+    flex-direction: column;
+}
+
+#firebaseui-auth-container {
+    display: block;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 6px 0;
+}
+
+.firebase-container {
+    display: block;
+    float: left;
+    width: 100%;
+    margin: 0 0 2%;
+    padding: 0;
+
+    &.hidden {
+        display: none;
+    }
+}
+
+#firebase-login {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.firebase-auth-container {
+    flex-direction: column;
+    gap: 10px;
+    width: fit-content;
+    display: flex;
+    text-align: center;
+    margin: 0 auto 10px;
+}
+
+.firebase-auth-btn {
+    padding: 10px 16px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    transition: background-color 0.3s;
+    position: relative;
+    box-shadow: 6px 4px 10px 2px #0009;
+}
+
+.firebase-google-btn {
+    background-color: #4285F4;
+}
+
+.firebase-google-btn:hover {
+    background-color: #3367D6;
+}
+
+.firebase-facebook-btn {
+    background-color: #3b5998;
+}
+
+.firebase-facebook-btn:hover {
+    background-color: #2d4373;
+}
+
+.firebase-github-btn {
+    background-color: #333;
+}
+
+.firebase-github-btn:hover {
+    background-color: #222;
+}

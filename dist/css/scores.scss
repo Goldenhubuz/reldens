@@ -1,0 +1,48 @@
+/**
+ *
+ * Reldens - Styles - Scores
+ *
+ */
+
+@use "variables" as *;
+
+.scores-dialog-box {
+    min-width: 160px;
+    top: 260px;
+    right: 360px;
+
+    .box-content {
+        min-height: 160px;
+    }
+}
+
+@media (max-height: 400px) {
+
+    .scores-dialog-box {
+        top: 50px;
+    }
+
+}
+
+.scores-open {
+    top: 370px;
+    right: 60px;
+}
+
+.scores-content {
+    flex-direction: column;
+
+    h3 {
+        text-align: center;
+    }
+
+    .scores-table {
+        padding: 1rem 2rem 2rem;
+    }
+
+    .score-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+}

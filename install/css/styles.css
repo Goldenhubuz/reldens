@@ -1,0 +1,374 @@
+/**
+ *
+ * Reldens - Installer
+ *
+ */
+body, html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  background-color: transparent;
+  user-select: none;
+}
+body .wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+  overflow: auto;
+  z-index: 10000;
+  background-size: cover;
+  background-color: #37517e;
+}
+body .wrapper .header,
+body .wrapper .footer,
+body .wrapper .content {
+  width: 100%;
+}
+body .wrapper .header,
+body .wrapper .footer {
+  color: #fff;
+}
+body .wrapper .header {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-items: center;
+  background-color: #000;
+  height: 14%;
+  max-height: 100px;
+}
+body .wrapper .content {
+  height: 80%;
+}
+body .wrapper .footer {
+  display: flex;
+  height: 6%;
+  background-color: #000;
+  padding: min(10px, 1%) 0;
+}
+
+.text-black {
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
+
+.header #your-logo {
+  margin-left: 2%;
+}
+.header h1 {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  padding: 2% 0;
+  font-family: "Play", sans-serif;
+  font-size: 1.5em;
+}
+.header h1 strong {
+  color: #2f7dde;
+  font-weight: bold;
+}
+@media (max-height: 390px) {
+  .header h1 {
+    font-size: 1em;
+    padding-top: 0.2em;
+  }
+}
+
+.footer .copyright {
+  position: relative;
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+.footer .copyright a, .footer .copyright a:hover, .footer .copyright a:visited {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 0;
+}
+
+.content {
+  min-height: 300px;
+}
+.content .forms-container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+.content .forms-container .install-form {
+  display: flex;
+  max-width: 1000px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 2px solid #fff;
+  box-shadow: 10px 10px 14px 2px rgba(0, 0, 0, 0.6);
+}
+
+button,
+input[type=button],
+input[type=submit] {
+  cursor: pointer;
+}
+
+.row {
+  display: flex;
+  position: relative;
+  width: 100%;
+  margin: 0 auto 10px;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+}
+.row.hidden {
+  display: none;
+}
+
+.col-2 {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 46%;
+  margin: 0;
+  padding: 2%;
+}
+
+.col-left {
+  align-content: end;
+}
+
+.col-right {
+  align-content: start;
+}
+
+@media (max-width: 725px) {
+  .row {
+    max-width: none;
+  }
+  .col-2 {
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+  }
+  .footer {
+    display: none;
+  }
+  .content {
+    height: 92%;
+  }
+  .content .forms-container {
+    flex-direction: column;
+  }
+}
+@media (min-width: 725px) and (max-width: 751px) {
+  form .input-box.reg-re-password label {
+    margin-top: 1px;
+  }
+}
+h3.form-title {
+  text-align: center;
+  background: #f2f2f2;
+  padding: 10px 0;
+  border: 1px solid #ccc;
+}
+
+form .input-box {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 10px;
+}
+form .input-box.db-basic-config, form .input-box.app-allow-packages-installation {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0;
+}
+form .input-box.db-basic-config label, form .input-box.app-allow-packages-installation label {
+  width: auto;
+}
+form .input-box.db-basic-config input, form .input-box.app-allow-packages-installation input {
+  top: 5px;
+}
+form .input-box.db-basic-config .db-basic-config-checkbox,
+form .input-box.db-basic-config .app-allow-packages-installation-checkbox, form .input-box.app-allow-packages-installation .db-basic-config-checkbox,
+form .input-box.app-allow-packages-installation .app-allow-packages-installation-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  padding: 0 0 6px;
+}
+form .input-box.db-basic-config .notice-box,
+form .input-box.db-basic-config .db-basic-config-notice,
+form .input-box.db-basic-config .app-allow-packages-installation-notice, form .input-box.app-allow-packages-installation .notice-box,
+form .input-box.app-allow-packages-installation .db-basic-config-notice,
+form .input-box.app-allow-packages-installation .app-allow-packages-installation-notice {
+  margin-bottom: 0;
+  background: none;
+}
+form .input-box.db-sample-data, form .input-box.app-use-https, form .input-box.app-use-monitor, form .input-box.app-secure-monitor, form .input-box.mailer-enable, form .input-box.mailer-secure, form .input-box.firebase-enable, form .input-box.app-admin-hot-plug {
+  justify-content: end;
+  margin-top: 4px;
+  padding: 0 0 6px 0;
+  background: rgba(255, 255, 255, 0.6);
+}
+form .input-box.db-sample-data label, form .input-box.app-use-https label, form .input-box.app-use-monitor label, form .input-box.app-secure-monitor label, form .input-box.mailer-enable label, form .input-box.mailer-secure label, form .input-box.firebase-enable label, form .input-box.app-admin-hot-plug label {
+  width: auto;
+}
+form .input-box.db-sample-data input, form .input-box.app-use-https input, form .input-box.app-use-monitor input, form .input-box.app-secure-monitor input, form .input-box.mailer-enable input, form .input-box.mailer-secure input, form .input-box.firebase-enable input, form .input-box.app-admin-hot-plug input {
+  top: 5px;
+}
+form .input-box.hidden, form .input-box.https-filter, form .input-box.monitor-filter, form .input-box.mailer-filter, form .input-box.firebase-filter {
+  display: none;
+}
+form .input-box.submit-container, form .input-box.terms-and-conditions-link-container {
+  justify-content: end;
+}
+form .input-box.submit-container {
+  padding: 0 2%;
+  box-sizing: border-box;
+  justify-content: end;
+  align-items: start;
+  gap: 1rem;
+}
+form .input-box label {
+  display: block;
+  position: relative;
+  font-size: 12px;
+  margin-top: 10px;
+  width: 40%;
+  text-align: right;
+}
+form .input-box input {
+  display: block;
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+form .input-box input[type=text],
+form .input-box input[type=email],
+form .input-box input[type=password] {
+  width: 50%;
+  max-width: 268px;
+}
+form .input-box select {
+  height: 2rem;
+  width: 100%;
+  max-width: 250px;
+}
+form .notice-box,
+form .db-basic-config-notice,
+form .app-allow-packages-installation-notice {
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(255, 255, 255, 0.6);
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: normal;
+}
+form .notice-box ul,
+form .db-basic-config-notice ul,
+form .app-allow-packages-installation-notice ul {
+  margin-bottom: 0;
+}
+form .notice-box span,
+form .db-basic-config-notice span,
+form .app-allow-packages-installation-notice span {
+  color: #000;
+  padding: 10px;
+}
+form .notice-box span.danger,
+form .db-basic-config-notice span.danger,
+form .app-allow-packages-installation-notice span.danger {
+  font-weight: bold;
+  color: #ff0000;
+  cursor: pointer;
+  width: 100%;
+  text-align: center;
+}
+form .notice-box span.danger ul,
+form .db-basic-config-notice span.danger ul,
+form .app-allow-packages-installation-notice span.danger ul {
+  display: none;
+  text-align: left;
+}
+form .notice-box span.danger ul.expanded,
+form .db-basic-config-notice span.danger ul.expanded,
+form .app-allow-packages-installation-notice span.danger ul.expanded {
+  display: block;
+}
+form .notice-box {
+  justify-content: flex-start;
+  padding: 0 0 1rem;
+}
+
+.installation-successful {
+  display: block;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  text-decoration: none;
+  font-size: 2em;
+  color: #000;
+}
+
+.app-error p, .db-error p {
+  display: none;
+  width: 100%;
+  padding: 2%;
+  background: rgba(255, 255, 255, 0.6);
+  font-size: 12px;
+  font-weight: bold;
+  color: #ff0000;
+}
+.app-error p.active, .db-error p.active {
+  display: block;
+}
+
+.loading-status-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+.loading-status-wrapper.hidden {
+  display: none;
+}
+
+.install-loading {
+  max-width: 50px;
+}
+
+.install-status-message {
+  padding: 8px 12px;
+  font-size: 11px;
+  font-weight: bold;
+  color: #37517e;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+#install-submit-button.disabled {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,23 @@
+/**
+ *
+ * Reldens - Styles - Mini Map
+ *
+ */
+
+#minimap-open {
+    top: 0;
+    left: 0;
+}
+
+.minimap-ui {
+    position: relative;
+    top: 26px;
+    left: 26px;
+    display: block;
+    float: left;
+    background: transparent;
+
+    &.hidden {
+        display: none;
+    }
+}

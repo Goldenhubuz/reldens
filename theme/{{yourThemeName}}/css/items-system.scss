@@ -1,0 +1,410 @@
+/**
+ *
+ * Reldens - Styles - Items System
+ *
+ */
+
+@use "variables" as *;
+
+#inventory-open {
+    top: 90px;
+    right: 60px;
+}
+
+#equipment-open {
+    top: 160px;
+    right: 60px;
+}
+
+#inventory-items,
+#equipment-items {
+    position: relative;
+    word-wrap: break-word;
+    overflow: auto;
+    font-size: 12px;
+}
+
+#inventory-items {
+    width: 268px;
+    height: 200px;
+}
+
+#equipment-items {
+    width: 268px;
+    height: 225px;
+}
+
+.inventory-ui,
+.equipment-ui {
+    display: none;
+    float: left;
+    position: relative;
+    min-height: 100px;
+    padding: 20px;
+    background: $cBlack;
+    color: $cWhite;
+}
+
+.inventory-ui {
+    min-width: 160px;
+    top: 80px;
+    right: 360px;
+}
+
+.equipment-ui {
+    min-width: 160px;
+    top: 100px;
+    right: 360px;
+}
+
+@media (max-height: 400px) {
+
+    .equipment-ui {
+        top: 80px;
+    }
+
+}
+
+.item-box,
+.group-item-block {
+    float: left;
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin-bottom: 6px;
+}
+
+.item-box {
+    .item-data-container {
+        display: none;
+        position: absolute;
+        top: 54px;
+        left: 16%;
+        z-index: 2;
+        width: 64%;
+        text-align: center;
+        background: $cBlack60;
+        padding: 4px;
+        color: $cWhite;
+        border: 1px solid $cWhite;
+        border-radius: 10px;
+        font-style: italic;
+    }
+
+    .item-qty,
+    .image-container {
+        display: block;
+        float: left;
+        width: 100%;
+        text-align: center;
+        cursor: pointer;
+
+        img {
+            border-radius: 6px;
+        }
+    }
+
+    .actions-container {
+        display: block;
+        width: 100%;
+        position: relative;
+
+        .item-action-block {
+            position: relative;
+            float: left;
+            max-width: 32px;
+            margin: 5px 5px 0;
+
+            img {
+                max-width: 32px;
+                cursor: pointer;
+            }
+
+        }
+
+    }
+
+    .trash-confirm {
+        display: none;
+        min-width: 96px;
+
+        span {
+            cursor: pointer;
+            padding: 5px;
+            border: 1px solid;
+            margin: 5px;
+            display: inline-block;
+        }
+
+    }
+
+}
+
+.item-box:nth-child(4n) .item-data-container,
+.item-box:nth-child(5n) .item-data-container {
+    right: 50px;
+    left: auto;
+}
+
+.item-label,
+.item-description {
+    display: block;
+}
+
+.group-item-block {
+    position: relative;
+
+    .equip-group-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        opacity: 0.2;
+        border: 1px solid $cWhite;
+    }
+
+    .equipped-item {
+        position: relative;
+        top: 0;
+        left: 0;
+        z-index: 2;
+    }
+
+    .image-container img {
+        min-width: 50px;
+    }
+
+    .item-qty,
+    .item-data-container .item-description,
+    .item-data-container .item-trash {
+        display: none;
+    }
+
+    .item-data-container {
+        min-width: 50px;
+
+        .actions-container .item-action-block {
+            float: none;
+            margin: 5px auto;
+        }
+
+    }
+
+}
+
+#group-item-weapon,
+#group-item-shield,
+#group-item-armor,
+#group-item-gauntlets {
+    display: block;
+    width: 50%;
+}
+
+#group-item-helmet,
+#group-item-boots {
+    display: block;
+    width: 100%;
+
+    .equip-group-icon {
+        max-width: 50px;
+        left: 40%;
+    }
+
+    .equipped-item {
+        display: block;
+        margin: 0 auto;
+        max-width: 50px;
+        min-height: 50px;
+    }
+
+}
+
+#group-item-weapon,
+#group-item-armor {
+
+    .equip-group-icon {
+        max-width: 50px;
+        right: 20px;
+        left: auto;
+    }
+
+    .equipped-item {
+        position: absolute;
+        right: 20px;
+        left: auto;
+    }
+
+}
+
+#group-item-shield,
+#group-item-gauntlets {
+
+    .equip-group-icon {
+        max-width: 50px;
+        right: auto;
+        left: 20px;
+    }
+
+    .equipped-item {
+        position: absolute;
+        right: auto;
+        left: 20px;
+    }
+
+}
+
+.start-trade {
+    margin-bottom: 10px;
+}
+
+.trade-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+
+    .player-confirmed {
+        display: block;
+        width: 100%;
+        margin-top: 10px;
+        padding: 4px;
+        background: rgba(0, 0, 0, 0.4);
+        border: 1px solid $cReldens;
+        border-radius: 6px;
+        font-weight: 700;
+        color: $cWhite;
+        text-align: center;
+
+        &:empty {
+            border: none;
+            background: transparent;
+        }
+    }
+
+    .trade-row {
+        position: relative;
+        float: left;
+        display: block;
+        min-width: 300px;
+
+        &.trade-items-boxes {
+            min-height: 280px;
+
+            .trade-col, .trade-player-col {
+                min-height: 280px;
+            }
+
+        }
+
+    }
+
+    .trade-confirm-actions {
+        padding-top: 10px;
+        display: flex;
+        flex-direction: row;
+        flex-grow: 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .confirm-action,
+    .disconfirm-action,
+    .cancel-action {
+        min-height: 25px;
+        margin-left: 15px;
+    }
+
+    .trade-col {
+        position: relative;
+        float: left;
+        display: block;
+        width: 46%;
+        min-width: 100px;
+        min-height: 25px;
+        margin: 0;
+        padding: 0 1%;
+    }
+}
+
+.ui-dialog-box.type-trade.trade-in-progress {
+    min-width: 380px;
+    max-width: 450px;
+
+    .box-content {
+        height: 400px;
+        max-height: 100%;
+        width: 342px;
+    }
+
+    .trade-player-col {
+        width: 32%;
+        display: block;
+        float: left;
+        position: relative;
+    }
+}
+
+.trade-item {
+    display: block;
+    position: relative;
+    height: auto;
+
+    &.hidden {
+        display: none;
+    }
+
+    .trade-action-remove {
+        position: absolute;
+        right: -10px;
+
+        img {
+            max-width: 20px;
+            cursor: pointer;
+        }
+    }
+
+    .image-container {
+        cursor: pointer;
+    }
+}
+
+.my-items .trade-item {
+    .actions-container.trade-actions {
+        display: none;
+
+        &.trade-actions-expanded {
+            display: block;
+            position: absolute;
+            top: 54px;
+            left: 0;
+            z-index: 3;
+            background: $cBlack;
+            border: 1px solid $cWhite;
+            border-radius: 6px;
+            padding: 4px;
+
+            input, button {
+                border: 0;
+                margin: 6px auto 2px;
+                width: 100%;
+                float: none;
+                position: relative;
+                display: block;
+                max-width: 100%;
+                text-align: center;
+                padding: 4px 0;
+            }
+
+            .requirement-key img, .reward-key img {
+                max-width: 16px;
+            }
+        }
+    }
+}
+
+.pushed-to-trade .trade-item .actions-container.trade-actions,
+.got-from-trade .trade-item .actions-container.trade-actions {
+    display: block;
+}

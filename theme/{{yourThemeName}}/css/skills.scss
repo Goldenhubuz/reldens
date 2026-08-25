@@ -1,0 +1,60 @@
+/**
+ *
+ * Reldens - Styles - Skills
+ *
+ */
+
+@use "variables" as *;
+
+#class-path-select {
+    width: 54%;
+    max-width: 268px;
+    float: right;
+    display: block;
+    position: relative;
+    border: 1px solid $cLightGrey;
+    padding: 8px 1%;
+    margin: 0;
+}
+
+.player-selection-additional-info,
+.avatar-container {
+    display: block;
+    float: left;
+    width: 100%;
+}
+
+.class-path-container,
+.level-container,
+.experience-container {
+    display: block;
+    width: 100%;
+    margin: 6px auto 0;
+}
+
+.level-container,
+.experience-container {
+    font-size: 11px;
+}
+
+.experience-container {
+    div {
+        float: left;
+        margin: 0 8px 0 0;
+    }
+
+    .current-experience::after {
+        content: '/';
+        margin: 0 4px;
+    }
+
+}
+
+.ui-skills-controls.ui-box-controls {
+    bottom: 66px;
+    left: 202px;
+}
+
+.skills-container.action-buttons {
+    flex-direction: row;
+}

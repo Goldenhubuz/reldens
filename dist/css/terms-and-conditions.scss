@@ -1,0 +1,110 @@
+/**
+ *
+ * Reldens - Styles - Terms and Conditions
+ *
+ */
+
+@use "variables" as *;
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    display: none;
+}
+
+.modal-overlay.active {
+    display: block;
+}
+
+#terms-and-conditions {
+    z-index: 2000;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: visible;
+    width: 100%;
+    max-width: min(90vw, 800px);
+    height: 100%;
+    max-height: min(80vh, 500px);
+    margin: 0;
+    background-color: $cDarkBlue;
+    color: $cWhite;
+    cursor: default;
+
+    &.wooden-box {
+        background:
+            linear-gradient($cDarkBlue, $cDarkBlue) repeat center,
+            url('../assets/game-ui/wood-left-right.png') repeat-y left,
+            url('../assets/game-ui/wood-left-right.png') repeat-y right,
+            url('../assets/game-ui/wood-top-bottom.png') repeat-x top,
+            url('../assets/game-ui/wood-top-bottom.png') repeat-x bottom;
+        background-origin: padding-box, border-box, border-box, border-box, border-box;
+        background-clip: padding-box, border-box, border-box, border-box, border-box;
+    }
+
+    .scrollable {
+        max-height: 280px;
+        padding: 2% 4%;
+    }
+
+    .terms-and-conditions-text {
+        display: block;
+        float: left;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        margin-bottom: 15px;
+        max-height: 60vh;
+
+        h3 {
+            text-align: center;
+        }
+
+        .terms-body {
+            overflow-y: auto;
+            width: 92%;
+            padding: 2% 4%;
+        }
+    }
+
+    .input-box button {
+        display: block;
+        position: relative;
+        margin-top: 1rem;
+        border: 1px solid $cLightGrey;
+        padding: 8px;
+        box-shadow: 4px 4px 8px 0 #0009;
+    }
+
+    .box-close {
+        width: 30px;
+        box-shadow: -2px 2px 4px #000;
+
+        &:hover {
+            box-shadow: -2px 2px 4px #fff;
+        }
+    }
+}
+
+.terms-and-conditions-link-container.hidden {
+    display: none;
+}
+
+.terms-and-conditions-link {
+    text-align: right;
+    cursor: pointer;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.terms-box {
+    display: block;
+    padding: 2%;
+    margin: 2%;
+}

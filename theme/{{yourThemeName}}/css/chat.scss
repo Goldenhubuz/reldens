@@ -1,0 +1,112 @@
+/**
+ *
+ * Reldens - Styles - Chat
+ *
+ */
+
+@use "variables" as *;
+
+.chat-ui {
+    float: left;
+    position: relative;
+    top: -270px;
+    left: -426px;
+    padding: 20px;
+    min-width: 300px;
+    max-width: 300px;
+    min-height: 200px;
+    background: #000000;
+    color: $cWhite;
+    /* help for chrome issue with scale on phaser dom elements
+    will-change: transform;
+    transform: scale(1.011);
+    */
+}
+
+#chat-contents {
+    display: block;
+    font-size: 12px;
+    height: 100%;
+    width: 100%;
+
+    .tabs-container {
+        display: block;
+        position: relative;
+        height: 100%;
+    }
+
+    .tabs-headers {
+        height: 20%;
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: 26px;
+
+        .tab-label {
+            display: inline-block;
+            padding-right: 6px;
+            border-right: 1px solid #fff;
+            cursor: pointer;
+
+            &.active {
+                font-weight: bold;
+            }
+
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+
+    .tabs-contents {
+        height: 60%;
+        display: block;
+        overflow-y: auto;
+        max-height: 150px;
+
+        .tab-content {
+            display: none;
+            overflow-y: auto;
+
+            &.active {
+                display: block;
+            }
+        }
+    }
+}
+
+#chat-messages {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 92%;
+    height: 72%;
+    padding: 2%;
+    word-wrap: break-word;
+    overflow: auto;
+    user-select: auto;
+    font-family: $normalFont;
+    font-size: 12px;
+}
+
+#chat-input {
+    position: absolute;
+    bottom: 15px;
+    width: 70%;
+    outline: none;
+    user-select: auto;
+    font-family: $normalFont;
+}
+
+#chat-send {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    width: 16%;
+}
+
+#chat-open {
+    position: absolute;
+    top: -66px;
+    left: -66px;
+}
